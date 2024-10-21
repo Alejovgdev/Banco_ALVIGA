@@ -22,6 +22,8 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        println("Mensaje para actualizar git")
+
 
         val entrar = binding.entrar
 
