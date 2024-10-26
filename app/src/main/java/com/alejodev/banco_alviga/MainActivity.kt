@@ -1,5 +1,6 @@
 package com.alejodev.banco_alviga
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -22,8 +23,25 @@ class MainActivity : AppCompatActivity() {
 
 
         val usuario = binding.usuario
-        val recibir = intent.extras?.getString("keyDni").orEmpty()
-        usuario.text = "Bienvenido/a \n $recibir"
+        val txtUsuario = usuario.text.toString()
+        val dni = intent.getStringExtra("keyDni")
+        val pswd = intent.getStringExtra("keyPass")
+
+
+        usuario.text = "$txtUsuario \n $dni"
+
+        val cambiarContra = binding.buttoncambiarContra
+
+        cambiarContra.setOnClickListener {
+
+
+
+            val cambiarClave = Intent(this, CambiarClaveActivity::class.java)
+            cambiarClave.putExtra("keyDni", dni)
+            cambiarClave.putExtra("keyPass", pswd)
+
+            startActivity(cambiarClave)
+        }
 
 
     }

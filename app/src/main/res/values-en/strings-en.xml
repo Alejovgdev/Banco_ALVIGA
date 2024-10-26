@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Banco_ALVIGA</string>
+    <string name="bottom_bank">bottom_Bank</string>
+    <string name="iniciar_sesion">LOGIN</string>
+    <string name="introduce_el_usuario">Username</string>
+    <string name="obligatorio">Required</string>
+    <string name="introduce_la_contrasena">Password</string>
+    <string name="entrar">GO</string>
+    <string name="salir">EXIT</string>
+    <string name="posicionGlobal">GLOBAL POSITION</string>
+    <string name="movimientos">MOVEMENTS</string>
+    <string name="transferencias">TRANSFERS</string>
+    <string name="cambiar_contrase_a">EDIT PASSWORD</string>
+    <string name="promociones">PROMOTIONS</string>
+    <string name="cajeros">ATMs</string>
+    <string name="gestion_de_constrasena">PASSWORD MANAGEMENT</string>
+    <string name="introduce_tu_contrasena">Enter your password</string>
+    <string name="nueva_contrasena">New password</string>
+    <string name="repite_tu_nueva_contrasena">Repeat new password</string>
+    <string name="guardar_cambios">SAVE OPTIONS</string>
+    <string name="volver">RETURN</string>
+    <string name="usuario_n">USER </string>
+    <string name="bienvenido_a">Welcome</string>
+</resources>

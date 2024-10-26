@@ -15,7 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:backgroundTint="@color/mygrey"
         app:navigationIcon="@drawable/ic_menu">
 
     </com.google.android.material.bottomappbar.BottomAppBar>
@@ -32,10 +31,10 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
         android:layout_width="320sp"
-        android:layout_height="100sp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#AAA6A6">
+        android:layout_height="50sp"
+        android:layout_marginStart="275dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@android:color/white">
 
 
         <ImageView
@@ -48,19 +47,20 @@
             android:id="@+id/usuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="160dp"
-            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="20dp"
             android:text="@string/bienvenido_a"
-            android:textColor="#0B122F"
-            android:textSize="20dp" />
+            android:textColor="@color/black"/>
 
     </com.google.android.material.card.MaterialCardView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="320sp"
-        android:layout_height="444dp"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center">
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="90dp">
 
 
         <Button
@@ -86,11 +86,9 @@
             android:textColor="#0B122F"
             android:backgroundTint="@color/mygrey"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/buttonposition"
-            />
-
+            app:layout_constraintTop_toTopOf="@id/buttonposition" />
 
         <Button
             android:id="@+id/buttontransferencias"
@@ -106,18 +104,27 @@
             app:layout_constraintTop_toTopOf="@id/buttonmovimientos" />
 
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="320sp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="106dp">
+
+
         <Button
             android:id="@+id/buttoncambiarContra"
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:layout_marginTop="60dp"
+            android:layout_width="315dp"
+            android:layout_height="58dp"
             android:text="@string/cambiar_contrase_a"
-            android:backgroundTint="@color/mygrey"
             android:textColor="#0B122F"
+            android:backgroundTint="@color/mygrey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/buttontransferencias" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <Button
@@ -148,21 +155,23 @@
             app:layout_constraintTop_toTopOf="@id/buttonpromociones" />
 
 
-        <Button
-            android:id="@+id/buttonsalir"
-            android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:layout_marginTop="60dp"
-            android:text="@string/salir"
-            android:textColor="#0B122F"
-            android:backgroundTint="@color/mygrey"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/buttoncajeros" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/buttonsalir"
+        android:layout_width="wrap_content"
+        android:layout_height="60sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#0B122F"
+        android:text="@string/salir"
+        android:backgroundTint="@color/mygrey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/parent" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

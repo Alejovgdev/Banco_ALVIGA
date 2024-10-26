@@ -1,9 +1,19 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Banco_ALVIGA" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="android:textColor">#AAA6A6</item>
+        <item name="editTextColor">@color/white</item>
+        <item name="android:editTextColor">@color/white</item>
+        <item name="colorSecondary">#AAA6A6</item>
+        <item name="colorAccent">#AAA6A6</item>
+        <item name="android:statusBarColor">#00010B</item>
+
+
     </style>
+
+
+
 
     <style name="Theme.Banco_ALVIGA" parent="Base.Theme.Banco_ALVIGA" />
 </resources>
