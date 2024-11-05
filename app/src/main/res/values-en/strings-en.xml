@@ -22,4 +22,11 @@
     <string name="volver">RETURN</string>
     <string name="usuario_n">USER </string>
     <string name="bienvenido_a">Welcome</string>
+    <string name="nif">NIF</string>
+    <string name="nombre">Name</string>
+    <string name="apellidos">Last Name</string>
+    <string name="contrasena">Password</string>
+    <string name="email">Email</string>
+    <string name="registrar_nuevo_usuraio">Add new user</string>
+    <string name="nuevo">NEW</string>
 </resources>

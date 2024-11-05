@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Banco_ALVIGA</string>
     <string name="bottom_bank">bottom_Bank</string>
     <string name="iniciar_sesion">INCIAR SESIÓN</string>
@@ -21,4 +21,20 @@
     <string name="volver">VOLVER</string>
     <string name="usuario_n">Usuario </string>
     <string name="bienvenido_a">Bienvenido/a</string>
+    <string name="nif">NIF</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="email">Email</string>
+    <string name="registrar_nuevo_usuraio">Registrar nuevo usuraio</string>
+    <string name="nuevo">NUEVO</string>
+    <string name="cuenta_origen">Cuenta origen</string>
+    <string name="introduce_el_numero">Introduce el numero</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="enviar">Enviar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="movimientos_min">Movimientos</string>
+    <string name="selecciona_la_cuenta">Selecciona la cuenta:</string>
+    <string name="ultimos_movimientos">Últimos movimientos</string>
+
 </resources>

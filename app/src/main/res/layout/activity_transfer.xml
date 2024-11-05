@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TransferActivity"
+    android:background="@drawable/bitbackground">
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.6"
+        android:background="@color/black"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+    </View>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/transferencias"
+        android:textSize="23dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="280dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="-42dp"
+        android:layout_marginBottom="-4dp"
+        android:background="#2196F3"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/cuenta_origen"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+
+    <Spinner
+        android:id="@+id/spinnerOrigen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+    </Spinner>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="24dp"
+        android:text="Cuenta destino"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="140dp"
+        app:layout_constraintTop_toTopOf="@+id/textView6"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="@id/main">
+
+        <RadioButton
+            android:id="@+id/radioButtonSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cuenta propia"
+            android:textSize="17dp"
+            android:textColor="@color/mygrey"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cuenta ajena"
+            android:textColor="@color/mygrey"
+            android:textSize="17dp" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/editTextDestino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="144dp"
+        android:hint="@string/introduce_el_numero"
+        android:singleLine="true"
+        android:textColorHint="@color/mygrey"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerOrigen" />
+
+    <Spinner
+        android:id="@+id/spinnerDestino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="152dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerOrigen" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="76dp"
+        android:text="@string/cantidad"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <EditText
+        android:id="@+id/etCantidad"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="268dp"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerOrigen"></EditText>
+
+    <Spinner
+        android:id="@+id/spinnerDivisa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="280dp"
+        app:layout_constraintStart_toEndOf="@+id/etCantidad"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerOrigen"></Spinner>
+
+    <CheckBox
+        android:id="@+id/enviarJustificante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="28dp"
+        android:text="Enviar justificante"
+        android:textColor="@color/mygrey"
+        android:textSize="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etCantidad" />
+
+    <Button
+        android:id="@+id/buttonEnviar"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/mygrey"
+        android:text="@string/enviar"
+        android:textColor="#00020D"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enviarJustificante" />
+
+    <Button
+        android:id="@+id/buttonCancel"
+        android:layout_width="108dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="84dp"
+        android:backgroundTint="@color/mygrey"
+        android:text="@string/cancelar"
+        android:textColor="#00020D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enviarJustificante" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

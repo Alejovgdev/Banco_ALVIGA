@@ -7,7 +7,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.alejodev.banco_alviga.bd.MiBancoOperacional
 import com.alejodev.banco_alviga.databinding.ActivityCambiarClaveBinding
+import com.alejodev.banco_alviga.pojo.Cliente
 
 class CambiarClaveActivity : AppCompatActivity() {
 
@@ -25,10 +27,13 @@ class CambiarClaveActivity : AppCompatActivity() {
 
         val usuario = binding.textView7
         val txtUsuario = usuario.text.toString()
-        val dni = intent.getStringExtra("keyDni")
-        usuario.text = "$txtUsuario $dni"
 
-        val passold = intent.getStringExtra("keyPass")
+        val cliente = intent.getSerializableExtra("Cliente") as? Cliente
+
+        usuario.text = "$txtUsuario ${cliente?.getNombre()}"
+
+
+        val passold = cliente?.getClaveSeguridad()
 
         val butnSave = binding.buttonSave
 
@@ -36,10 +41,13 @@ class CambiarClaveActivity : AppCompatActivity() {
 
         butnSave.setOnClickListener {
 
-            val passMatch = binding.editTextPasswordM.text.toString()
+
+
+
+            val passMatch = binding.editTextPasswordOld.text.toString()
 
             if (passold != passMatch){
-                binding.editTextPasswordM.error = "La contraseña no es correcta"
+                binding.editTextPasswordOld.error = "La contraseña no es correcta"
 
             }
 
@@ -56,6 +64,22 @@ class CambiarClaveActivity : AppCompatActivity() {
 
                 Toast.makeText(this, "Las nuevas contraseñas no coinciden", Toast.LENGTH_SHORT).show()
 
+            }else{
+
+                if (cliente != null) {
+
+                    cliente.setClaveSeguridad(passNew)
+
+                    val mbo = MiBancoOperacional.getInstance(this)
+                    val p = mbo?.changePassword(cliente)
+
+                    if (p == 1){
+                        Toast.makeText(this, "Contraseña actualizada con exito", Toast.LENGTH_SHORT).show()
+                    }else Toast.makeText(this, "Error al actualizar la contraseña", Toast.LENGTH_SHORT).show()
+
+                }
+
+
             }
 
         }
@@ -65,7 +89,6 @@ class CambiarClaveActivity : AppCompatActivity() {
 
         btnReturn.setOnClickListener {
             val volver = Intent(this, MainActivity::class.java)
-            startActivity(volver)
             finish()
         }
 

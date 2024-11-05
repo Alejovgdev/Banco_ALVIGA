@@ -2,8 +2,12 @@ package com.alejodev.banco_alviga
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.alejodev.banco_alviga.bd.MiBancoOperacional
 import com.alejodev.banco_alviga.databinding.ActivityLoginBinding
+import com.alejodev.banco_alviga.pojo.Cliente
 
 class LoginActivity : AppCompatActivity() {
 
@@ -21,32 +25,43 @@ class LoginActivity : AppCompatActivity() {
 
         entrar.setOnClickListener {
 
+            val etUsuario = binding.etUser.text
+            val etContraseña = binding.etPassword.text
+
+            if (etUsuario.isEmpty() || etContraseña.isEmpty()){
+                Toast.makeText(this, "Los campos no pueden estar vacios", Toast.LENGTH_LONG).show()
+            }else {
 
 
-            val dni = binding.introduce.text.toString()
-            val password = binding.Password.text.toString()
+                val mbo: MiBancoOperacional? = MiBancoOperacional.getInstance(this)
 
+                // Introducimos los datos como si fuera la pantalla inicial
 
+                var cliente = Cliente()
+                cliente.setNif(binding.etUser.text.toString())
+                cliente.setClaveSeguridad(binding.etPassword.text.toString())
 
-
-
-            if (dni.isEmpty()){
-
-                binding.introduce.error = "Este campo es obligatorio"
-
-            }else if (password.isEmpty()){
-
-                binding.Password.error = "Este campo es obligatorio"
-
-            }else{
-
-                val mainActivity = Intent(this, MainActivity::class.java)
-                mainActivity.putExtra("keyDni", dni)
-                mainActivity.putExtra("keyPass", password)
-                startActivity(mainActivity)
+                // Logueamos al cliente
+                val clienteLogeado = mbo?.login(cliente)
+                if (clienteLogeado == null) {
+                    Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG).show()
+                } else {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("Cliente", clienteLogeado)
+                    startActivity(intent)
+                }
 
             }
 
+
+        }
+
+        val btnNuevoUsuario = binding.btnNuevoUsuario
+
+        btnNuevoUsuario.setOnClickListener {
+
+            val intent = Intent(this, RegistrarNuevoUsuario::class.java)
+            startActivity(intent)
 
         }
 

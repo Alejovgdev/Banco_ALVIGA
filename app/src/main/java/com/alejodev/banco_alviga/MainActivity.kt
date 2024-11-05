@@ -3,11 +3,15 @@ package com.alejodev.banco_alviga
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.alejodev.banco_alviga.bd.MiBancoOperacional
 import com.alejodev.banco_alviga.databinding.ActivityMainBinding
+import com.alejodev.banco_alviga.pojo.Cliente
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,27 +26,85 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        val usuario = binding.usuario
-        val txtUsuario = usuario.text.toString()
-        val dni = intent.getStringExtra("keyDni")
-        val pswd = intent.getStringExtra("keyPass")
+        val tvBienvenido = binding.tvBienvenido
+        val txtUsuario = tvBienvenido?.text.toString()
+
+        val cliente = intent.getSerializableExtra("Cliente") as? Cliente
 
 
-        usuario.text = "$txtUsuario \n $dni"
+
+        tvBienvenido?.text = "$txtUsuario \n ${cliente?.getNombre()}"
 
         val cambiarContra = binding.buttoncambiarContra
-
         cambiarContra.setOnClickListener {
 
 
 
             val cambiarClave = Intent(this, CambiarClaveActivity::class.java)
-            cambiarClave.putExtra("keyDni", dni)
-            cambiarClave.putExtra("keyPass", pswd)
+            cambiarClave.putExtra("Cliente", cliente)
 
             startActivity(cambiarClave)
         }
 
+        val btnTransfer = binding.buttontransferencias
+        btnTransfer.setOnClickListener {
+            val intent = Intent(this, TransferActivity::class.java)
+            intent.putExtra("Cliente", cliente)
+            startActivity(intent)
+        }
+
+        val btnPositionActivity = binding.buttonposition
+        btnPositionActivity.setOnClickListener {
+
+            val mbo = MiBancoOperacional.getInstance(this)
+            var cuentas = mbo?.getCuentas(cliente)
+
+            if (!cuentas.isNullOrEmpty()){
+                val intent = Intent(this, GlobalPositionActivity::class.java)
+                intent.putExtra("Cliente", cliente)
+                startActivity(intent)
+            }else{
+                AlertDialog.Builder(this)
+                    .setTitle("¡Abre tu cuenta ahora!")
+                    .setMessage("¡Aún no tienes cuentas! 🎉\n\n" +
+                            "¡Abre tu primera cuenta hoy y disfruta de increíbles beneficios!"
+                    )
+                    .setPositiveButton("OK", null)
+                    .show()
+
+            }
+
+        }
+
+        val btnMovement = binding.buttonmovimientos
+        btnMovement.setOnClickListener {
+
+            val mbo = MiBancoOperacional.getInstance(this)
+            var cuentas = mbo?.getCuentas(cliente)
+
+
+
+            if (!cuentas.isNullOrEmpty()){
+                val intent = Intent(this, MovementsActivity::class.java)
+                intent.putExtra("Cliente", cliente)
+                startActivity(intent)
+            }else{
+                AlertDialog.Builder(this)
+                    .setTitle("¡Abre tu cuenta ahora!")
+                    .setMessage("¡Aún no tienes cuentas! 🎉\n\n" +
+                            "¡Abre tu primera cuenta hoy y disfruta de increíbles beneficios!"
+                    )
+                    .setPositiveButton("OK", null)
+                    .show()
+
+            }
+
+        }
+
+        val btnSalir = binding.buttonsalir
+        btnSalir.setOnClickListener {
+            finish()
+        }
 
     }
 }

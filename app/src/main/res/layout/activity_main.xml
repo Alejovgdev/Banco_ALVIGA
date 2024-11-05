@@ -45,7 +45,7 @@
             app:srcCompat="@drawable/imgavatar" />
 
         <TextView
-            android:id="@+id/usuario"
+            android:id="@+id/tvBienvenido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="160dp"
