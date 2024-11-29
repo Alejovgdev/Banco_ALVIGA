@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.MovementsActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.MovimientosFragment"
     android:background="@drawable/bitbackground">
 
     <View
@@ -18,15 +17,12 @@
 
     </View>
 
-
-
-
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="132dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         android:text="@string/movimientos_min"
         android:textSize="25dp"
         android:textStyle="bold"
@@ -37,54 +33,29 @@
         android:id="@+id/view"
         android:layout_width="250dp"
         android:layout_height="2dp"
-        android:layout_marginStart="-52dp"
-        android:layout_marginBottom="-4dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="70dp"
         android:background="#2196F3"
         app:layout_constraintBottom_toBottomOf="@+id/textView12"
         app:layout_constraintStart_toStartOf="@+id/textView12" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="52dp"
-        android:text="@string/selecciona_la_cuenta"
-        android:textSize="19dp"
-        android:textColor="@color/mygrey"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="88dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:clickable="true"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"></Spinner>
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="112dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="110dp"
         android:text="@string/ultimos_movimientos"
         android:textColor="@color/mygrey"
-        android:textSize="19dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        android:textSize="19dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="150dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
         tools:listitem="@layout/item_movement"></androidx.recyclerview.widget.RecyclerView>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

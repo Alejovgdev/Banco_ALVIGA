@@ -1,4 +1,4 @@
-package com.alejodev.banco_alviga
+package com.alejodev.banco_alviga.Adapters
 
 import android.content.Context
 import android.graphics.Color
@@ -9,13 +9,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.alejodev.banco_alviga.databinding.ItemCuentaBinding
+import com.alejodev.banco_alviga.R
 import com.alejodev.banco_alviga.databinding.ItemMovementBinding
+import com.alejodev.banco_alviga.fragments.CuentaListener
+import com.alejodev.banco_alviga.fragments.MovimientoListener
 import com.alejodev.banco_alviga.pojo.Movimiento
 import java.text.SimpleDateFormat
 import java.util.Date
 
-class MovementAdapter (private val movements: ArrayList<Movimiento>?): RecyclerView.Adapter<MovementAdapter.ViewHolder>(){
+class MovementAdapter (private val movements: ArrayList<Movimiento>?, private val listener: MovimientoListener): RecyclerView.Adapter<MovementAdapter.ViewHolder>(){
     private lateinit var context: Context
 
 
@@ -42,6 +44,12 @@ class MovementAdapter (private val movements: ArrayList<Movimiento>?): RecyclerV
             tvTitulo.text = movement?.getDescripcion()
             tvFecha.text = formatDate(movement?.getFechaOperacion())
             val importe = movement?.getImporte() ?: 0f
+
+            itemView.setOnClickListener{
+                if (movement != null) {
+                    listener.onMovimientoSelected(movement)
+                }
+            }
 
             if (importe > 0){
                 val spannableImporte = SpannableString(importe.toString() + "€").apply {

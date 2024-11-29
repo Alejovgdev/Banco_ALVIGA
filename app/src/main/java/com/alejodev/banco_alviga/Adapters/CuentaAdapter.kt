@@ -1,4 +1,4 @@
-package com.alejodev.banco_alviga
+package com.alejodev.banco_alviga.Adapters
 
 import android.content.Context
 import android.graphics.Color
@@ -9,10 +9,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.alejodev.banco_alviga.R
 import com.alejodev.banco_alviga.databinding.ItemCuentaBinding
+import com.alejodev.banco_alviga.fragments.CuentaListener
 import com.alejodev.banco_alviga.pojo.Cuenta
 
-class CuentaAdapter(private val cuentas: ArrayList<Cuenta>?): RecyclerView.Adapter<CuentaAdapter.ViewHolder>(){
+class CuentaAdapter(private val cuentas: ArrayList<Cuenta>?, private val listener: CuentaListener): RecyclerView.Adapter<CuentaAdapter.ViewHolder>(){
 
     private lateinit var context: Context
 
@@ -27,19 +29,24 @@ class CuentaAdapter(private val cuentas: ArrayList<Cuenta>?): RecyclerView.Adapt
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cuenta = cuentas?.get(position)
         with(holder){
-            binding.tvCuenta.text = cuenta?.getNumeroCuenta()
+            itemView.setOnClickListener{
+                if (cuenta != null) {
+                    listener.onCuentaSelected(cuenta)
+                }
+            }
+            tvCuenta.text = cuenta?.getNumeroCuenta()
             val saldoActual = cuenta?.getSaldoActual() ?: 0f
 
             if (saldoActual > 0){
                 val spannableSaldo = SpannableString(saldoActual.toString() + "€").apply {
                     setSpan(ForegroundColorSpan(Color.GREEN), 0, length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                 }
-                binding.tvSaldo.text = spannableSaldo
+                tvSaldo.text = spannableSaldo
             }else{
                 val spannableSaldo = SpannableString(saldoActual.toString() + "€").apply {
                     setSpan(ForegroundColorSpan(Color.RED), 0, length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
                 }
-                binding.tvSaldo.text = spannableSaldo
+                tvSaldo.text = spannableSaldo
             }
 
 

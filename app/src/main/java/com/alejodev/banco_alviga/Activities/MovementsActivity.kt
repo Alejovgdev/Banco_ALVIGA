@@ -1,4 +1,4 @@
-package com.alejodev.banco_alviga
+package com.alejodev.banco_alviga.Activities
 
 import android.R
 import android.os.Bundle
@@ -8,12 +8,14 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.alejodev.banco_alviga.Adapters.MovementAdapter
 import com.alejodev.banco_alviga.bd.MiBancoOperacional
 import com.alejodev.banco_alviga.databinding.ActivityMovementsBinding
+import com.alejodev.banco_alviga.fragments.MovimientoListener
 import com.alejodev.banco_alviga.pojo.Cliente
 import com.alejodev.banco_alviga.pojo.Movimiento
 
-class MovementsActivity : AppCompatActivity() {
+class MovementsActivity : AppCompatActivity(), MovimientoListener {
 
     private lateinit var binding: ActivityMovementsBinding
     private lateinit var movementAdapter: MovementAdapter
@@ -33,7 +35,7 @@ class MovementsActivity : AppCompatActivity() {
 
         // Configura el LayoutManager
         linearLayoutManager = LinearLayoutManager(this) // Aquí
-        movementAdapter = MovementAdapter(ArrayList()) // Puedes inicializar con una lista vacía
+        movementAdapter = MovementAdapter(ArrayList(), this) // Puedes inicializar con una lista vacía
         itemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
 
         binding.recyclerView.apply {
@@ -79,7 +81,11 @@ class MovementsActivity : AppCompatActivity() {
     }
 
     private fun mostrarMovimientos(movimientos: ArrayList<Movimiento>){
-        val adapter = MovementAdapter(movimientos)
+        val adapter = MovementAdapter(movimientos, this)
         binding.recyclerView.adapter = adapter
+    }
+
+    override fun onMovimientoSelected(movimiento: Movimiento) {
+        TODO("Not yet implemented")
     }
 }

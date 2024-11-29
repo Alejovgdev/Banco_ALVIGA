@@ -1,12 +1,9 @@
-package com.alejodev.banco_alviga
+package com.alejodev.banco_alviga.Activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.alejodev.banco_alviga.bd.MiBancoOperacional
 import com.alejodev.banco_alviga.databinding.ActivityCambiarClaveBinding
 import com.alejodev.banco_alviga.pojo.Cliente

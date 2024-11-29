@@ -1,18 +1,12 @@
-package com.alejodev.banco_alviga
+package com.alejodev.banco_alviga.Activities
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
-import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.alejodev.banco_alviga.databinding.ActivityRegistrarNuevoUsuarioBinding
+import com.alejodev.banco_alviga.R
 import com.alejodev.banco_alviga.databinding.ActivityTransferBinding
 
 class TransferActivity : AppCompatActivity() {

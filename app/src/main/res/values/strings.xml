@@ -36,5 +36,8 @@
     <string name="movimientos_min">Movimientos</string>
     <string name="selecciona_la_cuenta">Selecciona la cuenta:</string>
     <string name="ultimos_movimientos">Últimos movimientos</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detalles_del_movimiento">Detalles del movimiento</string>
 
 </resources>

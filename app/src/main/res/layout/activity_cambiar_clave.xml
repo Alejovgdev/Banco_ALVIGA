@@ -5,7 +5,7 @@
     android:id="@+id/cambiarClave"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CambiarClaveActivity"
+    tools:context=".Activities.CambiarClaveActivity"
     android:background="@drawable/bitbackground">
 
 
