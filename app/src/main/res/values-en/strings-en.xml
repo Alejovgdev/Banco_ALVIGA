@@ -29,4 +29,22 @@
     <string name="email">Email</string>
     <string name="registrar_nuevo_usuraio">Add new user</string>
     <string name="nuevo">NEW</string>
+
+
+    <string name="cuenta_origen">Origin account</string>
+    <string name="introduce_el_numero">Set number</string>
+    <string name="cantidad">Amount</string>
+    <string name="enviar">Send</string>
+    <string name="cancelar">Cancel</string>
+    <string name="movimientos_min">Movements</string>
+    <string name="selecciona_la_cuenta">Select account:</string>
+    <string name="ultimos_movimientos">Last movements</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="detalles_del_movimiento">Details of movement</string>
+    <string name="home">HOME</string>
+        <string name="configuracion">CONFIGURATION</string>
+    <string name="logout">LOGOUT</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
 </resources>

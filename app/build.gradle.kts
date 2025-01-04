@@ -50,4 +50,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.airbnb.android:lottie:6.5.2")
+    implementation("androidx.drawerlayout:drawerlayout:1.1.1")
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
+    implementation ("com.google.android.material:material:1.7.0")
 }

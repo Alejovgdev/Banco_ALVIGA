@@ -30,11 +30,13 @@ import java.util.Date
 
 
 private const val ARG_CUENTA = "cuenta"
+private const val ARG_TIPO = "tipo"
 
 
 class MovimientosFragment : Fragment(), MovimientoListener {
 
     private var cuenta: Cuenta? = null
+    private var tipo: Int? = null
 
     private lateinit var binding: FragmentMovimientosBinding
     private lateinit var movementAdapter: MovementAdapter
@@ -46,6 +48,7 @@ class MovimientosFragment : Fragment(), MovimientoListener {
         super.onCreate(savedInstanceState)
         arguments?.let {
             cuenta = it.getSerializable(ARG_CUENTA) as? Cuenta
+            tipo = it.getInt(ARG_TIPO)
         }
     }
 
@@ -55,10 +58,16 @@ class MovimientosFragment : Fragment(), MovimientoListener {
     ): View? {
 
         val mbo = MiBancoOperacional.getInstance(context)
-        val moviemientos = mbo?.getMovimientos(cuenta) as? ArrayList<Movimiento> ?: ArrayList()
+        val movimientos: ArrayList<Movimiento>
+
+        if (tipo == -1){
+            movimientos = mbo?.getMovimientos(cuenta) as? ArrayList<Movimiento> ?: ArrayList()
+        }else{
+            movimientos = mbo?.getMovimientosTipo(cuenta, tipo!!) as? ArrayList<Movimiento> ?: ArrayList()
+        }
 
         binding = FragmentMovimientosBinding.inflate(inflater, container, false)
-        movementAdapter = MovementAdapter(moviemientos, this)
+        movementAdapter = MovementAdapter(movimientos, this)
         linearLayoutManager = LinearLayoutManager(context)
         itemDecoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         binding.recyclerView.apply {
@@ -73,10 +82,11 @@ class MovimientosFragment : Fragment(), MovimientoListener {
     companion object {
 
         @JvmStatic
-        fun newInstance(cuenta: Cuenta) =
+        fun newInstance(cuenta: Cuenta, tipo: Int) =
             MovimientosFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable(ARG_CUENTA, cuenta)
+                    putInt(ARG_TIPO, tipo)
                 }
             }
     }

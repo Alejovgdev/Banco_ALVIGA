@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_todos"
+        android:title="Todos"
+        android:icon="@drawable/baseline_filter_none_24">
+
+    </item>
+
+    <item
+        android:id="@+id/nav_cero"
+        android:title="Tipo 0"
+        android:icon="@drawable/baseline_filter_24">
+
+    </item>
+
+    <item
+        android:id="@+id/nav_uno"
+        android:title="Tipo 1"
+        android:icon="@drawable/baseline_filter_1_24">
+
+    </item>
+
+    <item
+        android:id="@+id/nav_dos"
+        android:title="Tipo 2"
+        android:icon="@drawable/baseline_filter_2_24">
+
+    </item>
+
+</menu>

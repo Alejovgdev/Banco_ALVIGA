@@ -83,13 +83,13 @@ class GlobalPositionActivity : AppCompatActivity(), CuentaListener{
 
         if (layoutLarge && !isPortrait){
 
-            val movimientosFragment = MovimientosFragment.newInstance(cuenta)
+            val movimientosFragment = MovimientosFragment.newInstance(cuenta, -1)
 
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container2, movimientosFragment)
                 .commit()
         }else if (isPortrait && layoutLarge){
-            val movimientosFragment = MovimientosFragment.newInstance(cuenta)
+            val movimientosFragment = MovimientosFragment.newInstance(cuenta, -1)
 
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container2, movimientosFragment)
