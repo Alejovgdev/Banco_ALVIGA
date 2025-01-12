@@ -7,7 +7,7 @@ import com.alejodev.banco_alviga.bd.MiBancoOperacional
 import com.alejodev.banco_alviga.databinding.ActivityRegistrarNuevoUsuarioBinding
 import com.alejodev.banco_alviga.pojo.Cliente
 
-class RegistrarNuevoUsuario : AppCompatActivity() {
+class RegistrarNuevoUsuario : BaseActivity() {
 
     private lateinit var binding: ActivityRegistrarNuevoUsuarioBinding
 

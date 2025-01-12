@@ -15,7 +15,7 @@ import com.alejodev.banco_alviga.fragments.MovimientoListener
 import com.alejodev.banco_alviga.pojo.Cliente
 import com.alejodev.banco_alviga.pojo.Movimiento
 
-class MovementsActivity : AppCompatActivity(), MovimientoListener {
+class MovementsActivity : BaseActivity(), MovimientoListener {
 
     private lateinit var binding: ActivityMovementsBinding
     private lateinit var movementAdapter: MovementAdapter

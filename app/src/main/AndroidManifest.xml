@@ -13,6 +13,13 @@
         android:theme="@style/Theme.Banco_ALVIGA"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.BaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings" />
+        <activity
             android:name=".Activities.JokeActivity"
             android:exported="false" />
         <activity

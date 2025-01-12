@@ -8,7 +8,7 @@ import com.alejodev.banco_alviga.bd.MiBancoOperacional
 import com.alejodev.banco_alviga.databinding.ActivityLoginBinding
 import com.alejodev.banco_alviga.pojo.Cliente
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
     private lateinit var binding: ActivityLoginBinding
 

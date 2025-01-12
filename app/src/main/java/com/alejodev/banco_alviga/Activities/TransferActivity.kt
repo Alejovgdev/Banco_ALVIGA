@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.alejodev.banco_alviga.R
 import com.alejodev.banco_alviga.databinding.ActivityTransferBinding
 
-class TransferActivity : AppCompatActivity() {
+class TransferActivity : BaseActivity() {
 
     private lateinit var binding: ActivityTransferBinding
 

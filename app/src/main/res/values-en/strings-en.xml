@@ -47,4 +47,21 @@
     <string name="logout">LOGOUT</string>
     <string name="open_nav">Open Navigation Drawer</string>
     <string name="close_nav">Close Navigation Drawer</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+
+    <string name="multimedia">Multimedia</string>
+    <string name="idioma">Language</string>
+    <string name="selecciona_el_idioma">Select language</string>
+    <string name="idioma_de_la_aplicaci_n">App language</string>
+    <string name="datos">Data</string>
+    <string name="origen_de_los_datos">Data origin</string>
+    <string name="selecciona_el_origen">Select origin</string>
+    <string name="musica">Music</string>
+    <string name="video_de_bienvenida">Welcome video</string>
+    <string name="no_reproducir_musica">Music off</string>
+    <string name="reproducir_musica">Music on</string>
+    <string name="no_reproducir_el_video_de_bienvenida">Welcome video off</string>
+    <string name="reproducir_el_video_de_bienvenida">Welcome video on</string>
+
 </resources>

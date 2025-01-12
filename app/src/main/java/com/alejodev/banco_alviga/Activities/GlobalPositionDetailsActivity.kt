@@ -16,7 +16,7 @@ import com.alejodev.banco_alviga.fragments.MovimientosFragment
 import com.alejodev.banco_alviga.pojo.Cuenta
 import com.alejodev.banco_alviga.pojo.Movimiento
 
-class GlobalPositionDetailsActivity : AppCompatActivity(){
+class GlobalPositionDetailsActivity : BaseActivity(){
 
     private lateinit var binding: ActivityGlobalPositionDetailsBinding
 

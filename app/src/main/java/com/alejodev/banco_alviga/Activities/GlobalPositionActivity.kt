@@ -18,7 +18,7 @@ import com.alejodev.banco_alviga.pojo.Cliente
 import com.alejodev.banco_alviga.pojo.Cuenta
 import com.alejodev.banco_alviga.pojo.Movimiento
 
-class GlobalPositionActivity : AppCompatActivity(), CuentaListener{
+class GlobalPositionActivity : BaseActivity(), CuentaListener{
 
     private lateinit var binding: ActivityGlobalPositionBinding
 

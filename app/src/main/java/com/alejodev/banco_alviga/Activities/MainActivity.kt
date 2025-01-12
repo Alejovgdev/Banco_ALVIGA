@@ -23,7 +23,7 @@ import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.navigation.NavigationView
 
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var drawerLayout: DrawerLayout
@@ -166,6 +166,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         startActivity(cambiarClave)
     }
 
+    fun abrirPreferencias(cliente: Cliente){
+        val preferencias = Intent(this, SettingsActivity::class.java)
+        preferencias.putExtra("Cliente", cliente)
+        startActivity(preferencias)
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId){
@@ -188,6 +194,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_cambiar_contra ->{
                 abrirCambiarContra(cliente)
                 drawerLayout.closeDrawer(GravityCompat.START)
+            }
+            R.id.nav_config ->{
+                abrirPreferencias(cliente)
             }
             R.id.nav_logout->finish()
         }

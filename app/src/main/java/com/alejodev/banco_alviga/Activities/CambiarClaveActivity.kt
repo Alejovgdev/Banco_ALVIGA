@@ -8,7 +8,7 @@ import com.alejodev.banco_alviga.bd.MiBancoOperacional
 import com.alejodev.banco_alviga.databinding.ActivityCambiarClaveBinding
 import com.alejodev.banco_alviga.pojo.Cliente
 
-class CambiarClaveActivity : AppCompatActivity() {
+class CambiarClaveActivity : BaseActivity(){
 
     private lateinit var binding: ActivityCambiarClaveBinding
 
