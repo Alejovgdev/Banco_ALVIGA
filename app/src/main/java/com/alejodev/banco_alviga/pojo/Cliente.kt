@@ -9,6 +9,7 @@ class Cliente : Serializable {
     private var apellidos: String? = null
     private var claveSeguridad: String? = null
     private var email: String? = null
+    private var isAdmin = 0
     private var listaCuentas: ArrayList<Cuenta>? = null
 
     constructor(
@@ -17,7 +18,8 @@ class Cliente : Serializable {
         nombre: String?,
         apellidos: String?,
         claveSeguridad: String?,
-        email: String?
+        email: String?,
+        isAdmin: Int
     ) {
         this.id = id
         this.nif = nif
@@ -25,6 +27,7 @@ class Cliente : Serializable {
         this.apellidos = apellidos
         this.claveSeguridad = claveSeguridad
         this.email = email
+        this.isAdmin = isAdmin
         listaCuentas = ArrayList()
     }
 
@@ -86,4 +89,16 @@ class Cliente : Serializable {
     fun setEmail(email: String?) {
         this.email = email
     }
+
+
+    fun getIsAdmin(): Int{
+        return isAdmin
+    }
+
+    fun setIsAdmin(isAdmin: Int?){
+        if (isAdmin != null) {
+            this.isAdmin = isAdmin
+        }
+    }
+
 }

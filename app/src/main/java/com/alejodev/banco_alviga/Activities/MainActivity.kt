@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
@@ -105,9 +106,23 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             finish()
         }
 
+        val btnAtm = binding.buttoncajeros
+        btnAtm?.setOnClickListener {
+            abrirAtmMng(cliente)
+        }
+
     }
 
-     fun abrirPosition(cliente : Cliente){
+    private fun abrirAtmMng(cliente: Cliente) {
+        Log.d("es Admin-------------------", cliente.getIsAdmin().toString())
+       if (cliente.getIsAdmin() == 1){
+           val intent = Intent(this, AtmManagmentActivity::class.java)
+           startActivity(intent)
+       }
+
+    }
+
+    fun abrirPosition(cliente : Cliente){
 
 
             val mbo = MiBancoOperacional.getInstance(this)
@@ -198,8 +213,12 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             R.id.nav_config ->{
                 abrirPreferencias(cliente)
             }
+            R.id.nav_cajeros ->{
+                abrirAtmMng(cliente)
+            }
             R.id.nav_logout->finish()
         }
         return true
     }
+
 }

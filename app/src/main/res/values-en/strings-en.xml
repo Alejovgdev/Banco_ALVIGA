@@ -63,5 +63,14 @@
     <string name="reproducir_musica">Music on</string>
     <string name="no_reproducir_el_video_de_bienvenida">Welcome video off</string>
     <string name="reproducir_el_video_de_bienvenida">Welcome video on</string>
-
+    <string name="a_adir">ADD</string>
+    <string name="mapas">MAPS</string>
+    <string name="selecciona_el_cajero">Select Atm:</string>
+    <string name="administracion">MANAGE</string>
+    <string name="direccion">Adress</string>
+    <string name="latitud">Latitude</string>
+    <string name="longitud">Length</string>
+    <string name="guardar">Add</string>
+    <string name="cajero">Atm</string>
+    <string name="rellenar_campos">You must fill all fields</string>
 </resources>

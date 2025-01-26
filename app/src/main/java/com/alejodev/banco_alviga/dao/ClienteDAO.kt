@@ -21,6 +21,7 @@ class ClienteDAO : PojoDAO {
         contentValues.put("apellidos", c.getApellidos())
         contentValues.put("claveSeguridad", c.getClaveSeguridad())
         contentValues.put("email", c.getEmail())
+        contentValues.put("isAdmin", c.getIsAdmin())
         return MiBD.dB?.insert("clientes", null, contentValues) ?: -1
     }
 
@@ -32,6 +33,7 @@ class ClienteDAO : PojoDAO {
         contentValues.put("apellidos", c.getApellidos())
         contentValues.put("claveSeguridad", c.getClaveSeguridad())
         contentValues.put("email", c.getEmail())
+        contentValues.put("isAdmin", c.getIsAdmin())
         val condicion = "id=" + String.valueOf(c.getId())
         return MiBD.dB?.update("clientes", contentValues, condicion, null)
     }
@@ -53,7 +55,7 @@ class ClienteDAO : PojoDAO {
             "nif=" + "'" + c.getNif() + "'"
         }
         val columnas = arrayOf(
-            "id", "nif", "nombre", "apellidos", "claveseguridad", "email"
+            "id", "nif", "nombre", "apellidos", "claveseguridad", "email", "isAdmin"
         )
         val cursor: Cursor? =
             MiBD.dB?.query("clientes", columnas, condicion, null, null, null, null) ?:null
@@ -66,6 +68,7 @@ class ClienteDAO : PojoDAO {
             nuevoCliente.setApellidos(cursor.getString(3))
             nuevoCliente.setClaveSeguridad(cursor.getString(4))
             nuevoCliente.setEmail(cursor.getString(5))
+            nuevoCliente.setIsAdmin(cursor.getInt(6))
 
             // Obtenemos la lista de cuentas que tiene el cliente
             //c.setListaCuentas(MiBD.getInstance(null).getCuentaDAO().getCuentas(c));
@@ -78,7 +81,7 @@ class ClienteDAO : PojoDAO {
     //Recorremos el cursor hasta que no haya más registros
     override fun getAll(): ArrayList<*>? {
         val listaClientes = ArrayList<Cliente>()
-        val columnas = arrayOf("id", "nif", "nombre", "apellidos", "claveseguridad", "email")
+        val columnas = arrayOf("id", "nif", "nombre", "apellidos", "claveseguridad", "email", "isAdmin")
         val cursor = MiBD.dB?.query("clientes", columnas, null, null, null, null, null)
         val cuentaDAO = CuentaDAO()
 
@@ -91,6 +94,7 @@ class ClienteDAO : PojoDAO {
                 c.setApellidos(cursor?.getString(3))
                 c.setClaveSeguridad(cursor?.getString(4))
                 c.setClaveSeguridad(cursor?.getString(5))
+                c.setIsAdmin(cursor?.getInt(6))
                 // c.listaCuentas = MiBD.getInstance(null).getCuentaDAO().getCuentas(c)
                 listaClientes.add(c)
             } while (cursor?.moveToNext() == true)

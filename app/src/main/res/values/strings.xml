@@ -59,5 +59,16 @@
     <string name="reproducir_musica">Reproducir musica</string>
     <string name="no_reproducir_el_video_de_bienvenida">No reproducir el video de bienvenida</string>
     <string name="reproducir_el_video_de_bienvenida">Reproducir el video de bienvenida</string>
+    <string name="a_adir">AÑADIR</string>
+    <string name="mapas">MAPAS</string>
+    <string name="selecciona_el_cajero">Selecciona el cajero:</string>
+    <string name="administracion">ADMINISTRACION</string>
+    <string name="direccion">Direccion</string>
+    <string name="latitud">Latitud</string>
+    <string name="longitud">Longitud</string>
+    <string name="guardar">Guardar</string>
+    <string name="cajero">Cajero</string>
+    <string name="rellenar_campos">Debes rellenar todos los campos</string>
+
 
 </resources>

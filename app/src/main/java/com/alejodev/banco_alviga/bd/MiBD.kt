@@ -17,7 +17,7 @@ protected constructor(context: Context?) :
     //Instrucción SQL para crear la tabla de Clientes
     private val sqlCreacionClientes =
         "CREATE TABLE clientes ( id INTEGER PRIMARY KEY AUTOINCREMENT, nif STRING, nombre STRING, " +
-                "apellidos STRING, claveSeguridad STRING, email STRING);"
+                "apellidos STRING, claveSeguridad STRING, email STRING, isAdmin INTEGER);"
 
     //Instruccion SQL para crear la tabla de Cuentas
     private val sqlCreacionCuentas =
@@ -70,18 +70,18 @@ protected constructor(context: Context?) :
 
     private fun insercionDatos(db: SQLiteDatabase) {
         // Insertamos los clientes
-        db.execSQL("INSERT INTO clientes(id, nif, nombre, apellidos, claveSeguridad, email) VALUES (1, '11111111A', 'Filemón', 'Pí', '1234', 'filemon.pi@tia.es');")
-        db.execSQL("INSERT INTO clientes(id, nif, nombre, apellidos, claveSeguridad, email) VALUES (2, '22222222B', 'Mortadelo', 'Ibáñez', '1234', 'mortadelo.ibanez@tia.es');")
-        db.execSQL("INSERT INTO clientes(id, nif, nombre, apellidos, claveSeguridad, email) VALUES (3, '33333333C', 'Vicente', 'Mondragón', '1234', 'vicente.mondragon@tia.es');")
-        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email) VALUES (null, null, '44444444D', 'Ayrton', 'Senna', '1234', 'ayrton.senna@f1.es');")
-        db.execSQL("INSERT INTO clientes(rowid, id, nif, nombre, apellidos, claveSeguridad, email)VALUES(null, null, 'B1111111A', 'Ibertrola', '-', '1234', '-');")
-        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email) VALUES (null, null, 'B2222222B', 'Gas Natural', '-', '1234', '-');")
-        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email) VALUES (null, null, 'B3333333C', 'Telefónica', '-', '1234', '-');")
-        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email) VALUES (null, null, 'B4444444D', 'Aguas de Valencia', '-', '1234', '-');")
-        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email) VALUES (null, null, 'B5555555E', 'Audi', '-', '1234', '-');")
-        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email) VALUES (null, null, 'B6666666F', 'BMW', '-', '1234', '-');")
-        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email) VALUES (null, null, 'B7777777G', 'PayPal', '-', '1234', '-');")
-        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email) VALUES (null, null, 'B8888888H', 'Ayuntamiento de Valencia', '-', '1234', '-');")
+        db.execSQL("INSERT INTO clientes(id, nif, nombre, apellidos, claveSeguridad, email, isAdmin) VALUES (1, '11111111A', 'Filemón', 'Pí', '1234', 'filemon.pi@tia.es', 1);")
+        db.execSQL("INSERT INTO clientes(id, nif, nombre, apellidos, claveSeguridad, email, isAdmin) VALUES (2, '22222222B', 'Mortadelo', 'Ibáñez', '1234', 'mortadelo.ibanez@tia.es', 0);")
+        db.execSQL("INSERT INTO clientes(id, nif, nombre, apellidos, claveSeguridad, email, isAdmin) VALUES (3, '33333333C', 'Vicente', 'Mondragón', '1234', 'vicente.mondragon@tia.es', 0);")
+        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email, isAdmin) VALUES (null, null, '44444444D', 'Ayrton', 'Senna', '1234', 'ayrton.senna@f1.es', 0);")
+        db.execSQL("INSERT INTO clientes(rowid, id, nif, nombre, apellidos, claveSeguridad, email, isAdmin)VALUES(null, null, 'B1111111A', 'Ibertrola', '-', '1234', '-', 0);")
+        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email, isAdmin) VALUES (null, null, 'B2222222B', 'Gas Natural', '-', '1234', '-', 0);")
+        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email, isAdmin) VALUES (null, null, 'B3333333C', 'Telefónica', '-', '1234', '-', 0);")
+        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email, isAdmin) VALUES (null, null, 'B4444444D', 'Aguas de Valencia', '-', '1234', '-', 0);")
+        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email, isAdmin) VALUES (null, null, 'B5555555E', 'Audi', '-', '1234', '-', 0);")
+        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email, isAdmin) VALUES (null, null, 'B6666666F', 'BMW', '-', '1234', '-', 0);")
+        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email, isAdmin) VALUES (null, null, 'B7777777G', 'PayPal', '-', '1234', '-', 0);")
+        db.execSQL("INSERT INTO clientes (rowid, id, nif, nombre, apellidos, claveSeguridad, email, isAdmin) VALUES (null, null, 'B8888888H', 'Ayuntamiento de Valencia', '-', '1234', '-', 0);")
 
         // Insertamos las cuentas
         db.execSQL("INSERT INTO cuentas (rowid, id, banco, sucursal, dc, numerocuenta, saldoactual, idcliente) VALUES (null, null, '1001', '1001', '11', '1000000001', 1500, 1);")
@@ -137,7 +137,7 @@ protected constructor(context: Context?) :
         private const val database = "MiBanco"
 
         //versión de la base de datos
-        private const val version = 11
+        private const val version = 13
         private var instance: MiBD? = null
         private var clienteDAO: ClienteDAO? = null
         private var cuentaDAO: CuentaDAO? = null
